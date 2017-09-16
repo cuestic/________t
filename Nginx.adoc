@@ -1,0 +1,133 @@
+= Nginx
+
+=== 基本操作
+
+```
+sudo service nginx start
+sudo service nginx reload
+sudo service nginx restart
+```
+
+```
+sudo nginx -t
+sudo nginx -s reload
+```
+
+```
+ln -s /etc/nginx/sites-available/com.gitlab.pennyjs /etc/nginx/sites-enabled/com.gitlab.pennyjs
+```
+
+=== Nginx 配置
+
+**反向代理 NodeJS 应用**
+
+```
+server {
+  listen 80;
+  server_name com.gitlab.pennyjs;
+
+  location / {
+    proxy_pass http://127.0.0.1:4000;
+    proxy_http_version 1.1;
+    proxy_cache_bypass $http_upgrade;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+  }
+}
+```
+
+**反向代理 Rails 应用**
+
+```
+upstream server_161029 {
+  server unix:///tmp/puma.0.sock;
+}
+
+client_max_body_size 5m;
+
+server {
+  listen 80;
+  server_name com.gitlab.pennyjs;
+  root /home/com.gitlab.pennyjs/public;
+
+  location / {
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Upgrade websocket;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    try_files $uri @server_161029;
+  }
+
+  location @server_161029 {
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header Upgrade websocket;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Host $http_host;
+    proxy_pass http://server_161029;
+  }
+}
+```
+
+**Let's Encrypt 配置**
+
+```
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root /var/www/html;
+
+  index index.html index.htm index.nginx-debian.html;
+
+  server_name com.gitlab.pennyjs;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  listen 443 ssl;
+  ssl_certificate /etc/letsencrypt/live/zuno.im/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/zuno.im/privkey.pem;
+  include /etc/letsencrypt/options-ssl-nginx.conf;
+}
+```
+
+```
+upstream server_170911 {
+  server unix:///tmp/puma.0.sock;
+}
+
+client_max_body_size 5m;
+
+server {
+  listen 443 ssl;
+  server_name com.gitlab.pennyjs;
+
+  root /home/web/com.gitlab.pennyjs/public;
+
+  location / {
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Upgrade websocket;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    try_files $uri @server_170911;
+  }
+
+  location @server_170911 {
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header Upgrade websocket;
+    proxy_set_header Connection upgrade;
+    proxy_set_header Host $http_host;
+    proxy_pass http://server_170911;
+  }
+
+  ssl_certificate /etc/letsencrypt/live/zuno.im/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/zuno.im/privkey.pem;
+  include /etc/letsencrypt/options-ssl-nginx.conf;
+}
+```

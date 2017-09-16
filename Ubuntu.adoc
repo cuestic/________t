@@ -1,0 +1,63 @@
+= Ubuntu
+
+=== 系统初始化
+
+```
+sudo apt-get update
+```
+
+```
+sudo apt-get install software-properties-common
+sudo apt-get install python-software-properties
+```
+
+```
+sudo apt-get install git-core
+sudo apt-get install vim tree
+sudo apt-get install wget curl
+```
+
+```
+sudo apt-get install zsh
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+chsh -s /bin/zsh
+```
+
+```
+sudo apt-get install imagemagick graphicsmagick
+sudo apt-get install sqlite3 libsqlite3-dev
+sudo apt-get install postgresql libpq-dev
+sudo apt-get install libssl-dev
+sudo apt-get install nginx
+```
+
+```
+sudo apt-add-repository ppa:brightbox/ruby-ng
+sudo apt-get update
+sudo apt-get install ruby2.4 ruby2.4-dev
+sudo gem install bundler
+```
+
+```
+sudo apt-get remove --purge
+sudo apt-get install npm
+sudo npm install -g n
+sudo n latest
+```
+
+```
+sudo adduser git
+sudo usermod -a -G sudo git
+```
+
+```
+sudo adduser melon sudo
+gpasswd -a v2ex sudo
+passwd melon
+```
+
+```
+cat ~/.ssh/authorized_keys
+nano /etc/ssh/sshd_config
+sudo service ssh restart
+```
