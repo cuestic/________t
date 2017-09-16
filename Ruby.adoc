@@ -1,0 +1,306 @@
+= Ruby
+
+=== RESTful API
+
+``` ruby
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'API'
+end
+```
+
+``` ruby
+with_options only: 'show' do |option|
+end
+
+constraints subdomain: 'api' do
+end
+
+namespace :api, path: '/' do
+end
+```
+
+=== 邮件服务
+
+``` ruby
+config.action_mailer.smtp_settings = {
+  :address        => 'smtp.mailgun.org',
+  :domain         => '******.mailgun.org',
+  :user_name      => 'postmaster@******.mailgun.org',
+  :password       => '******',
+  :authentication => 'plain',
+  :port           => 587
+}
+```
+
+=== 有用的 Gems
+
+- settingslogic
+- dotenv-rails
+- rails-i18n
+- devise
+- devise-i18n
+- redcarpet
+- sanitize
+- hashids
+- browser
+- GB2260
+- shoulda-matchers
+- database_cleaner
+- factory_girl_rails
+- pry-rails
+- awesome_print
+
+=== Misc
+
+``` ruby
+destroy => 204
+```
+
+```ruby
+RUBY_VERSION
+```
+
+```ruby
+Array(1)
+Array([0, 1, 2])
+
+[*(1)]
+[*([0, 1, 2])]
+
+('R'..'b').to_a
+(0...10).to_a
+```
+
+```ruby
+0.negative?
+1.positive?
+
+{}.to_h
+{}.is_a?(Hash)
+
+1&.negative?
+```
+
+```ruby
+%w{negative 0 positive}
+%i{negative 0 positive}
+%I{negative #{0} positive}
+```
+
+```ruby
+JSON.pretty_generate({})
+```
+
+```ruby
+String.new.concat(':)')
+String.new(')').prepend(':')
+```
+
+```ruby
+fun = -> (n) { return [n] }
+fun.call(0)
+```
+
+```ruby
+def stars(x, *y, **z)
+  return x, y, z
+end
+
+stars(0, 1, 2, { count: 3 })
+```
+
+=== RSpec 测试
+
+```ruby
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+end
+```
+
+```ruby
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, type: 'controller'
+end
+```
+
+```ruby
+module Macros
+  module ControllerHelper
+    def sign_in_user
+      before(:each) do
+        @request.env['devise.mapping'] = Devise.mappings[user]
+        sign_in FactoryGirl.create(user)
+      end
+    end
+  end
+end
+```
+
+```ruby
+RSpec.configure do |config|
+  config.extend Macros::ControllerHelper, type: 'controller'
+end
+```
+
+=== Active Record
+
+```ruby
+User.column_names
+User.columns_hash['name']
+User.ignored_columns
+```
+
+```ruby
+class Settings < Settingslogic
+  source Rails.root.join('config/settings.yml')
+  namespace Rails.env
+end
+```
+
+```ruby
+belongs_to :creator, class_name: 'User'
+```
+
+```ruby
+user.errors.details
+user.save(touch: false)
+```
+
+```json
+{
+  "created_on": "Date",
+  "created_at": "DateTime"
+}
+```
+
+```ruby
+class User < ActiveRecord::Base
+  has_many :orders
+  has_many :paid_orders, -> { user_paid }, class_name: 'Order'
+end
+
+class Order < ActiveRecord::Base
+  belongs_to :user
+  scope :user_paid, -> { where(status: 'paid') }
+end
+```
+
+=== 有用的 Snippets
+
+```ruby
+ActiveSupport::Autoload
+ActionView::Helpers::FormBuilder
+```
+
+```ruby
+SecureRandom.hex
+Random.rand(1000..9999).to_s
+```
+
+```ruby
+/\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
+```
+
+```ruby
+trade_no = -> (n) { return n.strftime('%Y%m%d%H%M%S') + n.nsec.to_s }
+trade_no.call(Time.now).ljust(24, rand(10).to_s)
+```
+
+```ruby
+namespace :user do
+  desc "Task description"
+  task :create, [:name] => [:environment] do |t, args|
+  end
+end
+```
+
+=== Action Controller
+
+```ruby
+params.require(:user).permit(:name, { followers_ids: [] })
+```
+
+```ruby
+render json: users, except: [], include: { followers: { only: 'id' } }
+```
+
+=== Active Support
+
+```ruby
+require 'active_support/all'
+```
+
+```ruby
+[].sum
+[0, 1].without(1)
+[{ id: 1 }].pluck(:id)
+```
+
+```ruby
+{ x: 0, y: 1, z: nil }.compact
+{ x: 0, y: 1, z: nil }.compact!
+```
+
+```ruby
+'Active Support'.try(:parameterize)
+```
+
+```ruby
+ActiveSupport::ArrayInquirer
+ActiveSupport::Dependencies.autoload_paths
+ActiveSupport::TimeZone.country_zones('kr').map(&:to_s)
+```
+
+=== 有用的命令行
+
+```
+rails middleware
+```
+
+```
+rails routes -g users
+rails routes -g DELETE
+rails routes -g api/users
+rails routes -g API::UsersController
+```
+
+```ruby
+include Rails::ConsoleMethods
+
+reload!
+
+app.class
+app.get '/'
+app.users_path
+app.method(:get).source_location
+```
+
+```ruby
+helper.strip_tags(helper.time_tag(Time.new))
+```
+
+```
+Status: 201 Created
+Location: https://api.leancloud.cn/1.1/classes/Post/558e20cbe4b060308e3eb36c
+```
+
+```
+{
+  "createdAt": "2015-06-29T01:39:35.931Z",
+  "objectId": "558e20cbe4b060308e3eb36c"
+}
+```
+
+```
+?include=author,creator,comments
+```
+
+```
+{
+  "updatedAt": "2015-06-30T18:02:52.248Z"
+}
+```
+
+```
+?where=&limit=&skip=&order_by=-created_at
+```

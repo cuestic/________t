@@ -1,0 +1,55 @@
+= Misc
+
+**SublimeText 快捷键**
+
+- command + L
+- command + D
+- command + K + B
+- command + control + G
+
+**命令行**
+
+```
+id -u
+passwd
+du -c
+du -hd0
+```
+
+```
+useradd git
+userdel git
+groupadd web
+```
+
+```
+sudo adduser git
+```
+
+```
+git shortlog -s -n
+```
+
+```
+shutdown -r now
+ps aux | grep node
+tail -n 10 production.log
+```
+
+```
+sudo cat /var/log/auth.log
+```
+
+```
+defaults delete com.googlecode.iterm2
+```
+
+```
+plutil -convert json -o constants.json constants.plist
+```
+
+```
+node -e 'console.log(Array(16).fill().map((_, i) => i).map((n) => "\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m").join("\0"))'
+node -e 'console.log(Array(24).fill().map((_, i) => i + 232).map((n) => "\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m").join("\0"))'
+node -e 'console.log(Array(216).fill().map((_, i) => i + 16).map((n) => ["\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m", n]).map((n) => n[1] % 36 == 15 ? n[0] + "\n" : n[0]).join("\0"))'
+```
