@@ -1,0 +1,33 @@
+= Android
+
+**Gradle 入门**
+
+```
+gradle init --type java-library
+gradle assembleDebug
+gradle installDebug
+gradle wrapper
+gradle build
+```
+
+```
+gradle installDebug && adb shell am start -n com.gitlab.pennyjs/.MainActivity
+```
+
+**命令行脚本**
+
+```
+android update sdk -a -u -t android-21
+android update sdk -a -u -t 87
+android list sdk --extended
+android list sdk -a
+```
+
+```
+android list targets
+android create project --target android-21 --name HelloApp --path ./HelloApp --activity MainActivity --package com.gitlab.pennyjs --gradle --gradle-version 2.3.0
+```
+
+```
+adb devices -l
+```

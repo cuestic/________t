@@ -1,0 +1,83 @@
+= Database
+
+=== PostgreSQL
+
+**PostgreSQL 入门**
+
+```
+sudo adduser codeschool
+sudo su - postgres
+psql
+```
+
+``` sql
+\password postgres
+```
+
+``` sql
+CREATE USER codeschool WITH PASSWORD '******';
+CREATE DATABASE development_database OWNER codeschool;
+GRANT ALL PRIVILEGES ON DATABASE development_database to codeschool;
+```
+
+```
+sudo -u postgres createuser --superuser codeschool
+sudo -u postgres createdb -O codeschool development_database
+```
+
+```
+psql -U codeschool -d development_database -h 127.0.0.1 -p 5432
+```
+
+**PostgreSQL 数据库备份**
+
+```
+pg_dump -W -U postgres -h localhost development_database > development_database_20161029.sql
+```
+
+```
+dropdb -W -U postgres -h localhost development_database
+createdb -W -U postgres -h localhost development_database
+```
+
+```
+psql -W -U postgres -h localhost development_database < development_database_20161029.sql
+```
+
+**PostgreSQL on Rails**
+
+``` yaml
+production:
+  encoding: unicode
+  adapter: postgresql
+  host: localhost
+  pool: 5
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  database: <%= ENV['POSTGRESQL_DATABASE'] %>
+```
+
+=== Redis
+
+* 用户关系模型设计
+
+**用户关系模型设计**
+
+```yaml
+keys:
+  users:{id}:followers: []
+  users:{id}:following: []
+actions:
+  follow: sadd
+  unfollow: srem
+users:
+  followers: smembers
+  following: smembers
+stats:
+  followers_count: scard
+  following_count: scard
+relations:
+  friends?: sinter
+  following?: sismember
+  followed_by?: sismember
+```
