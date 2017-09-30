@@ -140,4 +140,8 @@
 - Ravi+Prakash
 - Roboto+Condensed
 - Droid Sans Mono
+- Pattaya
+- Lobster
+- Megrim
+- Acme
 - 方正清刻本悦宋简体
