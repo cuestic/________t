@@ -8,3 +8,14 @@
 106.187.39.213 yuntipub.com #vpncloud_generated
 106.187.99.121 www.stackdoctor.com #vpncloud_generated
 106.187.99.121 stackdoctor.com #vpncloud_generated
+
+
+https://www.v2ex.com/api/topics/hot.json
+https://www.v2ex.com/api/topics/latest.json
+https://www.v2ex.com/api/topics/show.json?id=
+https://www.v2ex.com/api/topics/show.json?node_id|node_name|username=
+https://www.v2ex.com/api/nodes/show.json?name=
+https://www.v2ex.com/api/nodes/all.json
+https://www.v2ex.com/api/members/show.json?id=1|username=
+https://www.v2ex.com/api/site/stats.json
+https://www.v2ex.com/api/replies/show.json?topic_id|page|page_size=
