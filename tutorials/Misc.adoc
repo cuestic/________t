@@ -53,3 +53,16 @@ node -e 'console.log(Array(16).fill().map((_, i) => i).map((n) => "\x1b[38;5;" +
 node -e 'console.log(Array(24).fill().map((_, i) => i + 232).map((n) => "\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m").join("\0"))'
 node -e 'console.log(Array(216).fill().map((_, i) => i + 16).map((n) => ["\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m", n]).map((n) => n[1] % 36 == 15 ? n[0] + "\n" : n[0]).join("\0"))'
 ```
+
+**Shadowsocks**
+
+```
+sudo apt-get install python-pip
+sudo pip install shadowsocks
+```
+
+```
+sudo ssserver -p 4567 -k ******* -m aes-256-cfb --user nobody -d start
+sudo less /var/log/shadowsocks.log
+sudo ssserver -d stop
+```
