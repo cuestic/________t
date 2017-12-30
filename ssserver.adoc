@@ -1,1 +1,10 @@
+```
+sudo apt-get install python-pip
+sudo pip install shadowsocks
+```
 
+```
+sudo ssserver -p 4567 -k ******* -m aes-256-cfb --user nobody -d start
+sudo less /var/log/shadowsocks.log
+sudo ssserver -d stop
+```
