@@ -61,3 +61,11 @@ cat ~/.ssh/authorized_keys
 nano /etc/ssh/sshd_config
 sudo service ssh restart
 ```
+
+```
+sudo ufw status
+sudo ufw enable
+sudo ufw allow 4567
+sudo ufw allow 'OpenSSH'
+sudo ufw allow 'Nginx Full'
+```
