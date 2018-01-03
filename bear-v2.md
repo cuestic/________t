@@ -29,8 +29,11 @@ class Lexer {
   fun init() {}
   fun tokenize(code, opts={}) {}
 
-  fun self.createClass {}
-  fun self.isEmpty? {
+  @staticMethod
+  fun createClass {}
+  
+  @staticMethod
+  fun isEmpty? {
     return true
   }
 }
