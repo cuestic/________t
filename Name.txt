@@ -1,10 +1,7 @@
 neverland
-dumb
-maze
 palette
-fabric
 stellar
 starlight
 dinosaur
-mojito
-square
+juice
+sugar
