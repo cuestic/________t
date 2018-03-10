@@ -41,6 +41,22 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
+```
+FROM ruby:2.4
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
+
+RUN gem install bundler
+RUN bundle install
+
+EXPOSE 4200
+
+USER root
+
+CMD ["rackup", "-p", "4200", "-o", "0.0.0.0"]
+```
+
 === Bootstrap
 
 ```
