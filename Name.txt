@@ -1,11 +1,12 @@
+bear
 boast
 bubble
 dinosaur
+echo
 juice
 neverland
 palette
 spark
 starlight
-stellar
 sugar
 superb
