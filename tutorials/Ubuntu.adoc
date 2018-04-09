@@ -57,6 +57,10 @@ passwd melon
 ```
 
 ```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+```
 cat ~/.ssh/authorized_keys
 nano /etc/ssh/sshd_config
 sudo service ssh restart
