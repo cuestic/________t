@@ -69,6 +69,7 @@ sudo service ssh restart
 ```
 sudo ufw status
 sudo ufw enable
+sudo ufw deny 4321
 sudo ufw allow 4567
 sudo ufw allow 'OpenSSH'
 sudo ufw allow 'Nginx Full'
