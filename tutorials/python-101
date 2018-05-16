@@ -1,0 +1,87 @@
+= Python 101
+
+以下是我（Python 初学者）学习 Python 这门编程语言的知识总结。
+
+=== 如何开始
+
+如何开始 Python 编程，以 macOS 平台为例，`iTerm2`，`Homebrew` 是必需安装的工具。
+
+有了以上两个工具之后，打开 `iTerm2` 输入 `brew list | grep python`，如果发现什么也没有，那么可以通过 `Homebrew` 安装 Python 解释器。
+
+```
+brew install python3
+```
+
+```
+python3 -V
+```
+
+> 这里推荐使用 Python3 版本，它语法更加清晰。
+
+当你输入 `python3`，就可以进入命令行交互界面。
+
+```
+Python 3.6.4 (default, Mar 25 2018, 16:32:49)
+[GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+如果你要退出交互界面，输入 `exit()` 就可以。
+
+=== 简单练习
+
+Python 这门编程语言是根据缩进来区分代码块的，同时它几乎不需要任何 `;`
+
+```python
+from pprint import pprint
+
+def tags():
+  return [
+    { 'name': 'Python3' }
+  ]
+
+pprint(tags())
+```
+
+更多语法可以参考 link:https://learnxinyminutes.com/docs/zh-cn/python3-cn/[Y 分钟学 X 编程语言系列之 Python3 中文版]
+
+=== 第三方依赖管理
+
+第三方依赖管理是一门编程语言必不可少的工具，Python 有 `pipenv`，帮助我们更好地合理化组织项目。对于 macOS 平台，通过 `Homebrew` 可以很方便地安装。
+
+```
+brew install pipenv
+```
+
+创建一个 Python 项目可以有三个步骤
+
+1. 运行 `pipenv --python 3.6` 命令，`3.6` 即 Python 版本号；
+2. 运行 `pipenv install arrow` 命令，`arrow` 即第三方依赖名称；
+3. 运行 `pipenv shell` 命令，运行 `exit` 可以退出这个 `shell`；
+
+=== 推荐图书
+
+* link:http://www.ituring.com.cn/book/1966[Python 编程导论]
+* link:http://www.ituring.com.cn/book/1449[Flask Web 开发：基于 Python 的 Web 应用开发实战]
+
+=== 网络资源
+
+**视频教程**
+
+* link:https://nodelover.me/course/python-1[nodelover [中]]
+* link:http://campus.codeschool.com/courses/try-python/level/1/section/1/video/1[codeschool [英]]
+
+=== Web 开发框架
+
+* link:http://flask.pocoo.org/[Flask]
+
+=== 周边知识
+
+Python 编程语言应用范围十分广泛，命令行工具，图形处理，网络应用程序，人工智能等，它都能胜任。
+
+以下单独说说网络应用程序开发，通常说就是指 Web 应用开发，它需要一个网络应用框架（如以上提到的 Flask）和数据库（SQLite/PostgreSQL 或 MongoDB 等）
+
+=== RESTful API 设计
+
+link:http://cizixs.com/2016/12/12/restful-api-design-guide[跟着 Github 学习 Restful HTTP API 设计]
