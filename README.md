@@ -1,5 +1,21 @@
 # TODO
 
+**gb2260**
+
+```
+GET /?code?=int           ~> Array<Division> : []
+GET /:(name|code)         ~> Division        : {}
+GET /:latitude/:longitude ~> Division        : {}
+```
+
+**air**
+
+```
+GET /                     ~> Array<AQI> : []
+GET /:(name|code)         ~> AQI        : {}
+GET /:latitude/:longitude ~> AQI        : {}
+```
+
 **Weather**
 
 * https://github.com/Aaron-A/Project-RainMan
