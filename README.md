@@ -1,3 +1,15 @@
+# ??
+
+```
+<ReactType { ...props } />
+props
+  isListener
+  isAttribute
+
+TextElement { type: Text, props: { value: String } }
+JSX -> Babel
+```
+
 # TODO
 
 **gb2260**
