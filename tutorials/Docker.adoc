@@ -70,6 +70,9 @@ Image -> Container
 One Image can create many containers
 -t -> tag
 -d -> Detached
+```
+
+```
 sudo docker run --name
 sudo docker ps -a
 sudo docker rm -f ...
