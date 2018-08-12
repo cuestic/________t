@@ -63,3 +63,18 @@ CMD ["rackup", "-p", "4200", "-o", "0.0.0.0"]
 docker build -t node .
 docker run -d -p 4300:4200 --name do-nodejs node
 ```
+
+```
+dotCloud -> Docker Inc
+Image -> Container
+One Image can create many containers
+-t -> tag
+-d -> Detached
+sudo docker run --name
+sudo docker ps -a
+sudo docker rm -f ...
+sudo docker restart(stop/pause) Container-ID
+sudo docker exec -it Container-ID bash
+sudo docker network ls
+sudo docker volume ls
+```
