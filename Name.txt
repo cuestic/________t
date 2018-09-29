@@ -1,12 +1,6 @@
 bear
 boast
-bubble
 dinosaur
-echo
 juice
 neverland
 palette
-spark
-starlight
-sugar
-superb
