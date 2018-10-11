@@ -1,5 +1,5 @@
 git_name = %{zuno-studio}
-project_name = Dir.pwd.split('/').last
+project_name = Dir.pwd.gsub /(\w|\/)+zuno-studio\/@?/, ''
 
 puts %{git init}
 puts %{git config --local user.name #{git_name}}
