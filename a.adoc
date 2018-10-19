@@ -1,0 +1,87 @@
+= %{webpack-guides}
+
+=== Webpack 简易指南 Part.1
+
+现在 link:https://webpack.js.org[Webpack] 成为前端（浏览器）主流的打包工具，众多 JavaScript 框架也出现相应的命令行工具。
+
+* link:https://github.com/facebook/create-react-app[create-react-app]
+* link:https://cli.vuejs.org/zh[vue-cli]
+
+对于采用 JavaScript 框架的项目来说，以上脚手架工具做到了开箱即用，免去繁琐的手动配置环节，为项目开发提速不少。
+
+但是，随着项目的不断迭代，难免会出现特定的配置需求，我们又再次回到手动配置环节。
+
+那么，何不一开始就手动打造属于自己的 Webpack 开发环境呢，在过去一两年的项目开发中，我就是这样做的。我想把我所知道的分享给大家，让我们开始吧！
+
+忘掉以上提到的两个工具，忘掉 Webpack，让我们回想一下前端资源打包的初始形态。
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="//unpkg.com/primer@10.8.1/build/build.css">
+    <link rel="stylesheet" href="/assets/application.css">
+  </head>
+  <body>
+    <script src="//unpkg.com/dayjs@1.7.7/dayjs.min.js"></script>
+    <script src="/assets/application.js"></script>
+  </body>
+</html>
+```
+
+以上方式简单明确，链接标签只需放在正确的位置，排序由开发者确定。对于样式而言，位置越靠后，覆盖能力越强（存在特殊情况）；对于 JavaScript 而言，只需要把应用代码的链接标签放在最后就可以。
+
+值得注意的是，样式和 JavaScript 的内容可以利用工具进行压缩，有利于提高资源加载速度。
+
+* link:https://sass-lang.com[Sass]
+* link:https://github.com/mishoo/UglifyJS2[UglifyJS]
+
+综上所述，前端打包的初始形态有以下两点：
+
+* 资源需顺序加载
+* 资源需压缩体积
+
+随着项目复杂度提升，需要手动压缩的资源越来越多，同时需要加入的链接标签也越来越多，何不把这些相同类型的资源合并成一个文件，然后再进行压缩。如果能够由代码自动处理这些步骤，那就更好了。
+
+诞生于 2005 年的元老级 Web 应用框架 link:https://zh.wikipedia.org/wiki/Ruby_on_Rails[Rails] 最先给出这个解决方案 link:https://github.com/rails/sprockets[Sprockets] - Rack-based asset packaging。
+
+它采用注释语法让开发者定义资源依赖，排序同样由开发者确定
+
+_app/assets/application.css_
+
+```javascript
+//= require primer
+```
+
+_app/assets/application.js_
+
+```javascript
+//= require dayjs
+```
+
+它默认支持 Sass 和 link:https://coffeescript.org[CoffeeScript]，编译 Sass 和 CoffeeScript 属于第一道工序，接着再把相同类型的资源合并起来，最后压缩资源，一切都由 Sprockets 自动处理。
+
+随着 NodeJS 的流行，JavaScript 社区出现了许多自动化构建工具。其中，link:https://github.com/gulpjs/gulp[Gulp.js] 以相对优雅的接口开始流行起来。
+
+它通过插件机制让开发者自主定制构建流程，以下插件可以用于构建 Sprockets 替代方案
+
+* gulp-ruby-sass
+* gulp-coffeescript
+* gulp-concat
+* gulp-uglify
+
+由于大多数 JavaScript 库都会发布到 link:https://www.npmjs.com[NPM] 平台上，NPM 迅速成为统一前后端的依赖管理器。对于 NodeJS 而言，模块之间通过 `require` 语法关联，但在浏览器端 `require` 无法适用。
+
+还记得 Sprockets 给出的方案吗？要让开发者在前端代码里用上 `require`，我们只需在构建过程中加多一道工序 link:http://browserify.org[Browserify]。
+
+到目前为止，前端打包的构建流程包括：
+
+* 预处理器编译
+* 处理模块依赖
+* 合并资源文件
+* 压缩资源文件
+
+除了以上提到的 Gulp.js 构建方案，还有其它各式各样的构建工具，但始终没有谁能够脱颖而出，直到 Webpack 的出现。
+
+有了以上的知识背景，在下一篇文章中，将开始讲述如何搭建 Webpack 开发环境。
