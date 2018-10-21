@@ -1,133 +1,28 @@
 === Webpack 简易指南
 
-简单来说，Webpack 是一个前端打包工具。随着众多 JavaScript 框架的流行，Webpack 成为目前最受欢迎的模块化构建工具
+简单来说，Webpack 是一个前端打包工具。随着众多 JavaScript 框架流行起来，Webpack 成为目前最受欢迎的模块化构建工具
 
-在 Webpack 出现之前，前端开发也有许多类似的解决方案
-
-* Bower
-* Gulp.js
-* Browserify
-* Asset Pipeline
-
-Bower 主要解决了第三方依赖版本更新的问题。默认情况下，资源会放在 _bower_components_ 目录里，但需要开发者把这个目录设置为静态文件服务，并在 HTML 文件中加入引用标签
-
-```HTML
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css">
-    <link rel="stylesheet" href="/assets/application.css">
-  </head>
-  <body>
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/jquery-ujs/src/rails.js"></script>
-    <script src="/asset/application.js"></script>
-  </body>
-</html>
-```
-
-随着项目复杂度的提升，需要引用的资源越来越多。为了提升网站整体的加载速度，我们需要合理控制链接请求数，以及对资源（内容）进行压缩
-
-Gulp.js 是目前主流的前端构建工具。它可以让开发者利用插件自主定制构建流程
-
-|===
-| gulp-csso   | 对 CSS 资源进行压缩
-| gulp-uglify | 对 JavaScript 资源进行压缩
-| gulp-concat | 对多个相同类型的资源文件进行合并
-|===
-
-由于 NodeJS 平台的出现，JavaScript 成为前后端通用语言。Browserify 为浏览器端开发提供了与 NodeJS 平台一致的模块加载机制（CommonJS 规范）
-
-安装 Browserify
-
-```
-npm install browserify --save-dev
-```
-
-安装第三方依赖 `lodash`
-
-```
-npm install lodash --save
-```
-
-_entry.js_
-
-```javascript
-const uniq = require('lodash/uniq')
-
-console.log(uniq(['🍉', 1, 0, 1]))
-```
-
-运行代码
-
-```
-npx browserify entry.js | node
-```
-
-生成代码
-
-```
-npx browserify entry.js -o assets/application.js
-```
-
-2008 年，Rails 社区为开发者提供了前端自动化构建方案 - Asset Pipeline。它默认支持 Sass 和 CoffeeScript 预处理（编译），并对 CSS 和 JavaScript 资源进行合并与压缩
-
-_app/assets/stylesheets_
-
-```sass
-//= require normalize.css
-```
-
-_app/assets/javascripts_
-
-```javascript
-//= require jquery
-//= require jquery_ujs
-```
-
-Asset Pipeline 会根据注释内容的语法依次加载第三方依赖
-
-2016 年，Rails 的创造者 DHH 开始将 Webpack 引入框架之中，取名 Webpacker
-
-现在，让我们开始搭建一个基于 Webpack 的前端项目
-
-假设有以下工作目录
-
-```
-.
-└── package.json
-
-0 directories, 1 file
-```
-
-通过命令行安装 Webpack
+你可以运行以下命令安装 Webpack
 
 ```
 npm install webpack webpack-cli --save-dev
 ```
 
-创建入口文件 _entry.js_
-
-```javascript
-console.log('🍉')
-```
-
-运行 Webpack
+创建入口文件 _entry.js_，运行 Webpack
 
 ```
-npx webpack entry.js --mode development
+./node_modules/.bin/webpack entry.js
 ```
 
-Webpack 默认输出文件 _dist/main.js_
-
-如果你想要输出到 _assets/application.js_，可以运行
+Webpack 默认会输出内容到 _dist/main.js_，如果想输出到 _assets/application.js_，可以运行
 
 ```
-npx webpack entry.js --mode development -o assets/application.js
+npx webpack entry.js -o assets/application.js
 ```
 
-接下来，我们创建一个配置文件 _webpackfile.js_
+> `npx webpack` 可以理解为 `./node_modules/.bin/webpack` 的简化写法
+
+为 Webpack 创建配置文件 _webpackfile.js_
 
 ```javascript
 const { join } = require('path')
@@ -141,53 +36,145 @@ module.exports = {
 }
 ```
 
-运行 `npx webpack --mode development`
+有了以上的配置信息，运行 Webpack 的命令可以简化为
 
 ```
-Hash: 6090b020231c0a9368aa
-Version: webpack 4.21.0
-Time: 123ms
-Built at: 2018/10/20 下午11:44:59
-         Asset      Size  Chunks             Chunk Names
-application.js  3.76 KiB    main  [emitted]  main
-Entrypoint main = application.js
-[./entry.js] 18 bytes {main} [built]
+npx webpack --mode development
 ```
 
-安装第三方依赖 `esm`，让 NodeJS 运行环境支持 ECMAScript 模块语法
+Webpack 的 `mode` 选项有三个可选值：`development`、`production` 和 `none`，当 `mode` 的值为 `production` 时，输出的内容会被简化（压缩）
 
-```
-npm install esm --save-dev
-```
-
-运行 Webpack 的时候，加上 `--require` 参数
-
-```
-npx webpack --require esm --mode development
-```
-
-安装第三方依赖 `lodash`
-
-```
-npm install lodash --save
-```
-
-修改 _entry.js_
+Webpack 的配置文件还支持以下写法
 
 ```javascript
-const uniq = require('lodash/uniq')
+const { join } = require('path')
 
-console.log(uniq(['🍉', 1, 0, 1]))
+module.exports = (environment => {
+  return {
+    entry: './entry.js',
+    output: {
+      filename: 'application.js',
+      path: join(__dirname, 'assets')
+    }
+  }
+})
 ```
 
-生成代码
+其中，`environment` 这个值可以通过以下命令设置
 
 ```
-npx webpack --require esm --mode development
+npx webpack --mode development --env development
 ```
 
-运行代码
+不难看出，`mode` 和 `env` 参数几乎可以保持一致，因此可以去掉 `mode` 参数，并在配置文件中设置 `mode` 的值
+
+```javascript
+const { join } = require('path')
+
+module.exports = (environment => {
+  const mode = environment || 'development'
+  const devMode = mode === 'development'
+
+  return {
+    mode,
+    entry: './entry.js',
+    output: {
+      filename: 'application.js',
+      path: join(__dirname, 'assets')
+    }
+  }
+})
+```
+
+> 其中，`mode` 会有默认值 `development`，`devMode` 的值在接下来的配置需要用到
+
+因此，在本地开发环境，仅需运行
 
 ```
-node assets/application.js
+npx webpack
+```
+
+在发布生产环境版本的时候，运行
+
+```
+npx webpack --env production
+```
+
+接下来，可以定制 _package.json_ 的 `scripts` 字段
+
+```diff
+"scripts": {
++  "watch": "webpack --watch",
++  "build": "webpack --env production"
+},
+```
+
+> 这里的 `--watch` 会让 Webpack 启动监听模式
+
+这样的话，有以下简化版本
+
+在本地开发环境，仅需运行
+
+```
+npm run watch
+```
+
+在发布生产环境版本的时候，运行
+
+```
+npm run build
+```
+
+到目前为止，开发环境和生产环境输出的文件名都是 `application.js`，为了在生产环境中避免缓存问题，需要让每个版本的链接都不一样，也就是让生产环境输出的文件名都不一样
+
+Webpack 每次编译时都会生成一个哈希值，输出内容有变化，这个哈希值就会不一样。因此，在配置文件中可以这样设置
+
+```diff
+output: {
+-  filename: 'application.js',
+-  path: join(__dirname, 'assets')
++  path: join(__dirname, 'assets'),
++  filename: devMode ? 'application.js' : 'application-[hash:12].js'
+}
+```
+
+> 这样的 `[hash:12]` 表示哈希值（字符串）的长度为 12
+
+前端开发离不开样式，接下来需要让 Webpack 支持加载 CSS 文件
+
+```
+npm install --save-dev css-loader
+npm install --save-dev mini-css-extract-plugin
+```
+
+在配置文件中加入以下内容
+
+```diff
++ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+```
+
+```javascript
+output: {
+  path: join(__dirname, 'assets'),
+  filename: devMode ? 'application.js' : 'application-[hash:12].js'
+- }
++ },
++ module: {
++   rules: [
++     {
++       test: /\.css$/,
++       use: [
++         {
++           loader: MiniCssExtractPlugin.loader
++         },
++         'css-loader'
++       ]
++     }
++   ]
++ },
++ plugins: [
++   new MiniCssExtractPlugin({
++     filename: devMode ? 'application.css' : 'application-[hash:12].css'
++   })
++ ]
 ```
