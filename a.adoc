@@ -14,7 +14,7 @@ npm install webpack webpack-cli --save-dev
 ./node_modules/.bin/webpack entry.js
 ```
 
-Webpack 默认会输出内容到 _dist/main.js_，如果想输出到 _assets/application.js_，可以运行
+Webpack 默认输出内容到 _dist/main.js_，如果想输出到 _assets/application.js_，可以运行
 
 ```
 npx webpack entry.js -o assets/application.js
@@ -153,7 +153,7 @@ npm install --save-dev mini-css-extract-plugin
 + const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 ```
 
-```javascript
+```diff
 output: {
   path: join(__dirname, 'assets'),
   filename: devMode ? 'application.js' : 'application-[hash:12].js'
