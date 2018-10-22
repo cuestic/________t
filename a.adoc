@@ -2,7 +2,7 @@
 
 简单来说，Webpack 是一个前端打包工具。随着众多 JavaScript 框架流行起来，Webpack 成为目前最受欢迎的模块化构建工具
 
-你可以运行以下命令安装 Webpack
+运行以下命令安装 Webpack
 
 ```
 npm install webpack webpack-cli --save-dev
@@ -22,7 +22,7 @@ npx webpack entry.js -o assets/application.js
 
 > `npx webpack` 可以理解为 `./node_modules/.bin/webpack` 的简化写法
 
-为 Webpack 创建配置文件 _webpackfile.js_
+创建 Webpack 配置文件 _webpackfile.js_
 
 ```javascript
 const { join } = require('path')
@@ -36,15 +36,15 @@ module.exports = {
 }
 ```
 
-有了以上的配置信息，运行 Webpack 的命令可以简化为
+现在，运行 Webpack 的命令简化为
 
 ```
 npx webpack --mode development
 ```
 
-Webpack 的 `mode` 选项有三个可选值：`development`、`production` 和 `none`，当 `mode` 的值为 `production` 时，输出的内容会被简化（压缩）
+Webpack 的 `mode` 选项有三个可选值：`development`、`production` 和 `none`，编译时，如果 `mode` 的值为 `production`，输出的内容会被简化（压缩）
 
-Webpack 的配置文件还支持以下写法
+Webpack 配置文件还支持以下写法
 
 ```javascript
 const { join } = require('path')
@@ -60,41 +60,34 @@ module.exports = (environment => {
 })
 ```
 
-其中，`environment` 这个值可以通过以下命令设置
+其中，`environment` 这个变量的值可以通过以下命令设置
 
 ```
 npx webpack --mode development --env development
 ```
 
-不难看出，`mode` 和 `env` 参数几乎可以保持一致，因此可以去掉 `mode` 参数，并在配置文件中设置 `mode` 的值
+不难看出，`mode` 和 `env` 选项的值几乎可以保持一致，因此可以去掉 `mode` 选项，并在配置文件中设置它的值
 
-```javascript
-const { join } = require('path')
+```diff
+ const { join } = require('path')
 
-module.exports = (environment => {
-  const mode = environment || 'development'
-  const devMode = mode === 'development'
-
-  return {
-    mode,
-    entry: './entry.js',
-    output: {
-      filename: 'application.js',
-      path: join(__dirname, 'assets')
-    }
-  }
-})
+ module.exports = (environment => {
++  const mode = environment || 'development'
++
+   return {
++    mode,
+     entry: './entry.js',
+     output: {
+       filename: 'application.js',
 ```
 
-> 其中，`mode` 会有默认值 `development`，`devMode` 的值在接下来的配置需要用到
+其中，`mode` 这个变量的默认值为 `development`
 
-因此，在本地开发环境，仅需运行
+现在，运行 Webpack 的命令简化为
 
 ```
 npx webpack
 ```
-
-在发布生产环境版本的时候，运行
 
 ```
 npx webpack --env production
@@ -103,78 +96,152 @@ npx webpack --env production
 接下来，可以定制 _package.json_ 的 `scripts` 字段
 
 ```diff
-"scripts": {
-+  "watch": "webpack --watch",
-+  "build": "webpack --env production"
-},
+   "scripts": {
++    "watch": "webpack --watch",
++    "build": "webpack --env production"
+   },
 ```
 
-> 这里的 `--watch` 会让 Webpack 启动监听模式
+其中，Webpack 的 `--watch` 选项表示启动监听模式
 
-这样的话，有以下简化版本
-
-在本地开发环境，仅需运行
+现在，运行 Webpack 的命令简化为
 
 ```
 npm run watch
 ```
 
-在发布生产环境版本的时候，运行
-
 ```
 npm run build
 ```
 
-到目前为止，开发环境和生产环境输出的文件名都是 `application.js`，为了在生产环境中避免缓存问题，需要让每个版本的链接都不一样，也就是让生产环境输出的文件名都不一样
-
-Webpack 每次编译时都会生成一个哈希值，输出内容有变化，这个哈希值就会不一样。因此，在配置文件中可以这样设置
+目前为止，开发环境和生产环境输出的文件名都是 `application.js`，为了在生产环境中避免缓存问题，需要让每个版本的链接唯一。那么，简单来说，就是让每个版本（输出）的文件名加上特征值。Webpack 为开发者提供这个功能，只需要在配置文件中这样设置
 
 ```diff
-output: {
--  filename: 'application.js',
--  path: join(__dirname, 'assets')
-+  path: join(__dirname, 'assets'),
-+  filename: devMode ? 'application.js' : 'application-[hash:12].js'
-}
+ module.exports = (environment => {
+   const mode = environment || 'development'
++  const devMode = mode === 'development'
+
+   return {
+     mode,
+     entry: './entry.js',
+     output: {
+-      filename: 'application.js',
+-      path: join(__dirname, 'assets')
++      path: join(__dirname, 'assets'),
++      filename: devMode ? 'application.js' : 'application-[hash:12].js'
+     }
+   }
+ })
 ```
 
-> 这样的 `[hash:12]` 表示哈希值（字符串）的长度为 12
+> 其中，`[hash:12]` 表示特征值（字符串）的长度为 12
 
-前端开发离不开样式，接下来需要让 Webpack 支持加载 CSS 文件
+在 Webpack 中，资源即模块，它们都可以像 JavaScript 一样被引用。以下语法都是允许的
+
+|===
+| 资源位置 | 引用语法
+
+| styles/index.js                   | require('babel-loader!./styles')
+| node_modules/bulma/css/bulma.css  | require('css-loader!bulma/css/bulma.css')
+| node_modules/lodash/capitalize.js | const capitalize = require('lodash/capitalize')
+|===
+
+不难看出，Webpack 对资源的处理依赖于各式各样的加载器，运行以下命令来安装 `babel-loader` 和 `css-loader`
 
 ```
-npm install --save-dev css-loader
-npm install --save-dev mini-css-extract-plugin
+npm install babel-loader @babel/core @babel/preset-env --save-dev
 ```
 
-在配置文件中加入以下内容
+```
+npm install css-loader mini-css-extract-plugin --save-dev
+```
+
+在 Webpack 配置文件中创建资源（模块）匹配规则
 
 ```diff
-+ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+ const { join } = require('path')
++const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 ```
 
 ```diff
-output: {
-  path: join(__dirname, 'assets'),
-  filename: devMode ? 'application.js' : 'application-[hash:12].js'
-- }
-+ },
-+ module: {
-+   rules: [
-+     {
-+       test: /\.css$/,
-+       use: [
-+         {
-+           loader: MiniCssExtractPlugin.loader
-+         },
-+         'css-loader'
-+       ]
-+     }
-+   ]
-+ },
-+ plugins: [
-+   new MiniCssExtractPlugin({
-+     filename: devMode ? 'application.css' : 'application-[hash:12].css'
-+   })
-+ ]
+     output: {
+       path: join(__dirname, 'assets'),
+       filename: devMode ? 'application.js' : 'application-[hash:12].js'
+-    }
++    },
++    module: {
++      rules: [
++        {
++          test: /\.css$/,
++          use: [
++            {
++              loader: MiniCssExtractPlugin.loader
++            },
++            'css-loader'
++          ]
++        },
++        {
++          test: /\.js$/,
++          loader: 'babel-loader',
++          exclude: /node_modules/
++        }
++      ]
++    },
++    plugins: [
++      new MiniCssExtractPlugin({
++        filename: devMode ? 'application.css' : 'application-[hash:12].css'
++      })
++    ]
+   }
+ })
 ```
+
+其中，`MiniCssExtractPlugin` 告诉 Webpack 样式内容要独立出来
+
+由于 Webpack 会根据定义的规则自动选择加载器，为了避免歧义，以上语法简化为
+
+|===
+| 资源位置 | 引用语法
+
+| styles/index.js                   | require('./styles')
+| node_modules/bulma/css/bulma.css  | require('bulma/css/bulma.css')
+| node_modules/lodash/capitalize.js | const capitalize = require('lodash/capitalize')
+|===
+
+现在，使用 `html-webpack-plugin` 生成 _index.html_
+
+```
+npm install html-webpack-plugin --save-dev
+```
+
+在 Webpack 配置文件中加入这个插件
+
+```diff
+ const { join } = require('path')
++const HtmlWebpackPlugin = require('html-webpack-plugin')
+```
+
+```diff
+     plugins: [
++      new HtmlWebpackPlugin({
++        filename: '../index.html'
++      }),
+       new MiniCssExtractPlugin({
+         filename: devMode ? 'application.css' : 'application-[hash:12].css'
+       })
+     ]
+```
+
+```
+npm install serve --save-dev
+```
+
+> serve 提供一个简单的静态资源服务
+
+启动服务器，通过 `-l` 参数可以指定其它端口（这里以 `4300` 端口为例）
+
+```
+serve -l 4300
+```
+
+> 访问 http://localhost:4300 会出现我们预想的效果
