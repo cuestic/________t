@@ -42,7 +42,7 @@ module.exports = {
 npx webpack --mode development
 ```
 
-Webpack 的 `mode` 选项有三个可选值：`development`、`production` 和 `none`，编译时，如果 `mode` 的值为 `production`，输出的内容会被简化（压缩）
+> Webpack 的 `mode` 选项有三个可选值：`development`、`production` 和 `none`，编译时，如果 `mode` 的值为 `production`，输出的内容会被简化（压缩）
 
 Webpack 配置文件还支持以下写法
 
@@ -60,13 +60,13 @@ module.exports = (environment => {
 })
 ```
 
-其中，`environment` 这个变量的值可以通过以下命令设置
+代码中 `environment` 这个变量的值可以通过以下命令设置
 
 ```
 npx webpack --mode development --env development
 ```
 
-不难看出，`mode` 和 `env` 选项的值几乎可以保持一致，因此可以去掉 `mode` 选项，并在配置文件中设置它的值
+Webpack 允许开发者在配置文件中设置 `mode` 的值
 
 ```diff
  const { join } = require('path')
@@ -81,13 +81,15 @@ npx webpack --mode development --env development
        filename: 'application.js',
 ```
 
-其中，`mode` 这个变量的默认值为 `development`
+代码中 `mode` 这个变量的默认值为 `development`
 
 现在，运行 Webpack 的命令简化为
 
 ```
 npx webpack
 ```
+
+发布生产环境版本时，可以运行
 
 ```
 npx webpack --env production
@@ -102,7 +104,7 @@ npx webpack --env production
    },
 ```
 
-其中，Webpack 的 `--watch` 选项表示启动监听模式
+> Webpack 的 `--watch` 选项表示启动监听模式
 
 现在，运行 Webpack 的命令简化为
 
@@ -110,11 +112,13 @@ npx webpack --env production
 npm run watch
 ```
 
+发布生产环境版本时，可以运行
+
 ```
 npm run build
 ```
 
-目前为止，开发环境和生产环境输出的文件名都是 `application.js`，为了在生产环境中避免缓存问题，需要让每个版本的链接唯一。那么，简单来说，就是让每个版本（输出）的文件名加上特征值。Webpack 为开发者提供这个功能，只需要在配置文件中这样设置
+Webpack 自定义输出还支持以下写法
 
 ```diff
  module.exports = (environment => {
@@ -134,9 +138,9 @@ npm run build
  })
 ```
 
-> 其中，`[hash:12]` 表示特征值（字符串）的长度为 12
+这样一来，发布生产环境版本时，Webpack 输出文件的名称会加上长度为 12 的特征值（字符串）
 
-在 Webpack 中，资源即模块，它们都可以像 JavaScript 一样被引用。以下语法都是允许的
+在 Webpack 中，资源即模块，它们可以像 JavaScript 一样被引用
 
 |===
 | 资源位置 | 引用语法
@@ -146,7 +150,9 @@ npm run build
 | node_modules/lodash/capitalize.js | const capitalize = require('lodash/capitalize')
 |===
 
-不难看出，Webpack 对资源的处理依赖于各式各样的加载器，运行以下命令来安装 `babel-loader` 和 `css-loader`
+不难看出，Webpack 对资源的处理依赖于各式各样的加载器
+
+运行以下命令来安装 `babel-loader` 和 `css-loader`
 
 ```
 npm install babel-loader @babel/core @babel/preset-env --save-dev
@@ -208,7 +214,7 @@ npm install css-loader mini-css-extract-plugin --save-dev
 | node_modules/lodash/capitalize.js | const capitalize = require('lodash/capitalize')
 |===
 
-现在，使用 `html-webpack-plugin` 生成 _index.html_
+使用 `html-webpack-plugin` 生成 _index.html_
 
 ```
 npm install html-webpack-plugin --save-dev
@@ -232,16 +238,18 @@ npm install html-webpack-plugin --save-dev
      ]
 ```
 
+为了在浏览器访问 Webpack 生成的静态资源，安装以下工具
+
 ```
 npm install serve --save-dev
 ```
 
 > serve 提供一个简单的静态资源服务
 
-启动服务器，通过 `-l` 参数可以指定其它端口（这里以 `4300` 端口为例）
+启动服务器
 
 ```
 serve -l 4300
 ```
 
-> 访问 http://localhost:4300 会出现我们预想的效果
+现在，访问 http://localhost:4300 可以看到我们预想的效果
