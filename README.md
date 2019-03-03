@@ -48,3 +48,5 @@ GET /:latitude/:longitude ~> AQI        : {}
 * https://github.com/Hearst-DD/ObjectMapper
 * https://github.com/filletofish/CardsLayout
 * https://github.com/Ramotion/expanding-collection
+
+https://support.apple.com/zh-mo/HT201548
