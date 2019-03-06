@@ -1,5 +1,18 @@
 = Ubuntu
 
+```
+apt update
+apt install tree
+apt install zsh
+apt install nginx
+apt-add-repository ppa:brightbox/ruby-ng
+apt update
+apt install ruby2.6 ruby2.6-dev
+gem install bundler
+adduser git
+usermod -a -G sudo git
+```
+
 === 系统初始化
 
 ```
