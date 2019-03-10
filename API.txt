@@ -7,6 +7,7 @@ https://server.flowingcloud.cn/api_dev/weather/share?lon=116.677683&lat=23.44163
 https://github.com/Cuberto/bubble-icon-tabbar
 https://github.com/ninjaprox/NVActivityIndicatorView
 https://github.com/SwiftKickMobile/SwiftMessages
+https://github.com/hyperoslo/Lightbox
 
 https://dribbble.com/shots/4827193-Twitter-Line-Icons-V2/attachments/1084584
 https://dribbble.com/shots/5557285-Twitter-App-Concept/attachments
