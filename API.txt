@@ -5,6 +5,7 @@ https://server.flowingcloud.cn/api_dev/weather/real?lon=116.677683&lat=23.441638
 https://server.flowingcloud.cn/api_dev/weather/share?lon=116.677683&lat=23.441638
 
 https://github.com/Cuberto/bubble-icon-tabbar
+https://github.com/ninjaprox/NVActivityIndicatorView
 
 https://dribbble.com/shots/4827193-Twitter-Line-Icons-V2/attachments/1084584
 https://dribbble.com/shots/5557285-Twitter-App-Concept/attachments
