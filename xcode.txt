@@ -1,0 +1,5 @@
+cp -R '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Source/Swift File.xctemplate' ~/Library/Developer/Xcode/Templates/Custom/
+
+cp -R '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Source/Cocoa Class.xctemplate' ~/Library/Developer/Xcode/Templates/Custom/
+
+cp -R '/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates/Source/Sources Folder Swift File.xctemplate' ~/Library/Developer/Xcode/Templates/Custom/
