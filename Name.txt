@@ -5,4 +5,6 @@ lanata
 lavandula
 calanthe
 planet
-kafka
+papaya
+pomelo
+watermelon
