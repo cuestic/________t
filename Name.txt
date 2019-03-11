@@ -7,4 +7,5 @@ calanthe
 planet
 papaya
 pomelo
+pangyo
 watermelon
