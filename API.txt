@@ -8,6 +8,9 @@ https://www.raywenderlich.com/243-oauth-2-0-with-swift-tutorial
 https://github.com/OAuthSwift/OAuthSwift
 https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app
 
+https://m.weibo.cn/statuses/show?id=4352016685964470
+https://m.weibo.cn/profile/info?uid=2394925257&feature=2
+
 https://api.weibo.com/oauth2/authorize?client_id=3678121078&redirect_uri=http://192.168.0.102:4321/login
 login://james.ac.cn/login
 3678121078
