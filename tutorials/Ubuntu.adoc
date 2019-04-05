@@ -53,6 +53,8 @@ sudo gem install bundler
 
 ```
 sudo apt-get remove --purge
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt-get install -y nodejs
 sudo apt-get install npm
 sudo npm install -g n
 sudo n latest
