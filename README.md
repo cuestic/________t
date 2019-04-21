@@ -1,15 +1,3 @@
-# ??
-
-```
-<ReactType { ...props } />
-props
-  isListener
-  isAttribute
-
-TextElement { type: Text, props: { value: String } }
-JSX -> Babel
-```
-
 # TODO
 
 **gb2260**
@@ -49,5 +37,5 @@ GET /:latitude/:longitude ~> AQI        : {}
 * https://github.com/filletofish/CardsLayout
 * https://github.com/Ramotion/expanding-collection
 
-https://support.apple.com/zh-mo/HT201548
-https://thoughtbot.com/blog/creating-custom-xcode-templates
+* https://support.apple.com/zh-mo/HT201548
+* https://thoughtbot.com/blog/creating-custom-xcode-templates
