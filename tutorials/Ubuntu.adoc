@@ -1,10 +1,8 @@
-= Ubuntu
+= Ubuntu 16.04
 
 ```
 apt update
-apt install tree -y
-apt install zsh -y
-apt install nginx -y
+apt install nginx tree zsh -y
 apt-add-repository ppa:brightbox/ruby-ng -y
 apt update
 apt install ruby2.6 ruby2.6-dev -y
@@ -12,63 +10,32 @@ gem install bundler
 ```
 
 ```
+passwd git
 adduser git
 usermod -a -G sudo git
 ```
 
-=== 系统初始化
-
 ```
-sudo apt-get update
-```
-
-```
-sudo apt-get install software-properties-common
-sudo apt-get install python-software-properties
-```
-
-```
-sudo apt-get install git-core
-sudo apt-get install vim tree
-sudo apt-get install wget curl
-```
-
-```
-sudo apt-get install zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 chsh -s /bin/zsh
 ```
 
 ```
-sudo apt-get install imagemagick graphicsmagick
-sudo apt-get install sqlite3 libsqlite3-dev
-sudo apt-get install postgresql libpq-dev
-sudo apt-get install libssl-dev
-sudo apt-get install nginx
+apt install imagemagick graphicsmagick
+apt install sqlite3 libsqlite3-dev
+apt install postgresql libpq-dev
+apt install libssl-dev
+apt install nginx
 ```
 
 ```
-sudo apt-add-repository ppa:brightbox/ruby-ng
-sudo apt-get update
-sudo apt-get install ruby2.4 ruby2.4-dev
-sudo gem install bundler
+sudo apt remove --purge
+sudo apt autoremove
 ```
 
 ```
-sudo apt-get remove --purge
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-```
-sudo adduser git
-sudo usermod -a -G sudo git
-```
-
-```
-sudo adduser melon sudo
-gpasswd -a v2ex sudo
-passwd melon
+apt install nodejs -y
 ```
 
 ```
