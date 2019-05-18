@@ -24,8 +24,6 @@ chsh -s /bin/zsh
 apt install imagemagick graphicsmagick
 apt install sqlite3 libsqlite3-dev
 apt install postgresql libpq-dev
-apt install libssl-dev
-apt install nginx
 ```
 
 ```
