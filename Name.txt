@@ -1,6 +1,4 @@
 neverland
 backspace
 sutera
-lavandula
-calanthe
 planet
