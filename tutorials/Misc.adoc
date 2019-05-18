@@ -17,16 +17,6 @@ du -hd0
 ```
 
 ```
-useradd git
-userdel git
-groupadd web
-```
-
-```
-sudo adduser git
-```
-
-```
 git shortlog -s -n
 ```
 
@@ -57,8 +47,8 @@ node -e 'console.log(Array(216).fill().map((_, i) => i + 16).map((n) => ["\x1b[3
 **Shadowsocks**
 
 ```
-sudo apt-get install python-pip
-sudo pip install shadowsocks
+apt install python-pip
+pip install shadowsocks
 ```
 
 ```
