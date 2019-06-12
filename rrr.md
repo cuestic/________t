@@ -1,3 +1,3 @@
 ![...](./sd.png)
 
-**Ruby** 中文社区（**React** 版本）
+> This project is no longer maintained
