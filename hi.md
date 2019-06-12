@@ -1,8 +1,14 @@
+_**Micro** — Asynchronous HTTP microservices_
+
 # Hi
 
 ---
 Note: this project is no longer maintained.
 ---
+
+```bash
+npm install --save micro
+```
 
 ```ruby
 module M
