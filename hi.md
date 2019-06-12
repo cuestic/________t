@@ -2,7 +2,11 @@ _**抒库** - 基于 **Taro** 开发的国际标准书号查询工具_
 
 **抒库** - 基于 **Taro** 开发的国际标准书号查询工具
 
+**抒库** — 基于 **Taro** 开发的国际标准书号查询工具
+
 _**Micro** — Asynchronous HTTP microservices_
+
+**Micro** — Asynchronous HTTP microservices
 
 抒库（基于 Taro 开发的国际标准书号查询工具）
 Ruby 中文社区（React 版本）
