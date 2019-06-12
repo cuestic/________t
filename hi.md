@@ -1,3 +1,8 @@
+
+---
+Note: this project is no longer maintained.
+---
+
 ```ruby
 module M
   def self.included(base)
