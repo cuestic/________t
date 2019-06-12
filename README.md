@@ -2,4 +2,4 @@
 
 > This project is no longer maintained
 
-<img src="https://res.wx.qq.com/wxdoc/dist/assets/img/demo.ef5c5bef.jpg" width="240" >
+<img src="https://res.wx.qq.com/wxdoc/dist/assets/img/demo.ef5c5bef.jpg" width="140" >
