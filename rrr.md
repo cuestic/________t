@@ -2,4 +2,10 @@
 
 > This project is no longer maintained
 
-![https://img.shields.io/badge/ruby-china-38d9a9.svg?style=for-the-badge](https://img.shields.io/badge/ruby-china-38d9a9.svg?style=for-the-badge)
+<details>
+  <summary><b>APIs</b></summary>
+  <ul>
+    <li><a href="/examples/head-elements">Head elements</a></li>
+    <li><a href="/examples/layout-component">Layout component</a></li>
+  </ul>
+</details>
