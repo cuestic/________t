@@ -1,4 +1,6 @@
-_**抒库**_ - 基于 **Taro** 开发的国际标准书号查询工具
+_**抒库** - 基于 **Taro** 开发的国际标准书号查询工具_
+
+**抒库** - 基于 **Taro** 开发的国际标准书号查询工具
 
 _**Micro** — Asynchronous HTTP microservices_
 
