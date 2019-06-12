@@ -32,6 +32,7 @@ module M
 end
 ```
 
+
 <details>
   <summary><b>Examples</b></summary>
   <ul>
