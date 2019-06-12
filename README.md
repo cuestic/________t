@@ -3,5 +3,5 @@
 > This project is no longer maintained
 
 ```diff
-This project is no longer maintained
++ This project is no longer maintained
 ```
