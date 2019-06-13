@@ -1,31 +1,4 @@
-// ~~~~~~~~~~~~~+
-// * pluralize  *
-// * lodash.*   *
-// * mongoose   *
-// * minimist   *
-// * nanoid     *
-// ~~~~~~~~~~~~~+
-
-// ~~~~~~~~~~~~~~~~~~~~~+
-// * express            *
-// * express-limiter    *
-// * express-request-id *
-// ~~~~~~~~~~~~~~~~~~~~~+
-
-// ~~~~~~~~~~~~~~+
-// * body-parser *
-// * helmet      *
-// * morgan      *
-// * cors        *
-// ~~~~~~~~~~~~~~+
-
-// ~~~~~~~~~~~~~+
-// * dotenv     *
 // * bleach     *
-// * fs-extra   *
-// * validator  *
-// * superagent *
-// ~~~~~~~~~~~~~+
 
 import { configure, property } from '@sakura/mongoose'
 import { string, number, array, enum } from '@sakura/mongoose/types'
