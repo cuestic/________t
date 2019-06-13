@@ -6,6 +6,8 @@
   </ul>
 </details>
 
+![](https://img.shields.io/badge/JPEG-.codes-red.svg?style=flat-square&logo=github)
+
 ![aaa](https://matttrix1999.netlify.com/ruby.surge.sh.png | width=200)
 
 <img src="https://matttrix1999.netlify.com/ruby.surge.sh.png" height="40px">
