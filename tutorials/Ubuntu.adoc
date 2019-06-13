@@ -1,39 +1,16 @@
 = Ubuntu 16.04
 
 ```
-apt update
-apt install nginx tree zsh -y
-apt-add-repository ppa:brightbox/ruby-ng -y
-apt update
-apt install ruby2.6 ruby2.6-dev -y
-gem install bundler
-```
-
-```
-passwd git
-adduser git
-usermod -a -G sudo git
-```
-
-```
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-chsh -s /bin/zsh
+apt install nginx tree -y
 ```
 
 ```
 apt install imagemagick graphicsmagick
 apt install sqlite3 libsqlite3-dev
-apt install postgresql libpq-dev
 ```
 
 ```
-sudo apt remove --purge
 sudo apt autoremove
-```
-
-```
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-apt install nodejs -y
 ```
 
 ```
@@ -44,13 +21,4 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 cat ~/.ssh/authorized_keys
 nano /etc/ssh/sshd_config
 sudo service ssh restart
-```
-
-```
-sudo ufw status
-sudo ufw enable
-sudo ufw deny 4321
-sudo ufw allow 4567
-sudo ufw allow 'OpenSSH'
-sudo ufw allow 'Nginx Full'
 ```
