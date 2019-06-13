@@ -6,7 +6,6 @@ apt install nginx tree -y
 
 ```
 apt install imagemagick graphicsmagick
-apt install sqlite3 libsqlite3-dev
 ```
 
 ```
