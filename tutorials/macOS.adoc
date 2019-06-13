@@ -30,17 +30,8 @@
 
 **Homebrew**
 
-* git
-* zsh
-* wget
-* tree
-* ruby
-* python
-* node
 * httpie
 * archey
-* yarn
-* gradle
 * android-sdk
 * youtube-dl
 
@@ -55,24 +46,12 @@
 ``` json
 {
   "bold_folder_labels": true,
-  "color_scheme": "Packages/Dayle Rees Color Schemes/sublime/darkside.tmTheme",
   "detect_indentation": false,
   "draw_indent_guides": true,
   "draw_white_space": "all",
   "ensure_newline_at_eof_on_save": true,
-  "folder_exclude_patterns":
-  [
-    ".git",
-    ".bundle",
-    ".vagrant",
-    ".sass-cache"
-  ],
   "font_face": "Monaco",
   "font_size": 22,
-  "ignored_packages":
-  [
-    "Vintage"
-  ],
   "line_padding_bottom": 8,
   "line_padding_top": 8,
   "tab_size": 2,
@@ -98,7 +77,7 @@
     "indent_offset": 16,
     "indent_top_level": false,
     "dark_content": false
-  },
+  }
 ]
 ```
 
@@ -119,14 +98,8 @@
     showInvisibles: true
     softWrap: true
     tabType: "soft"
-  "exception-reporting":
-    userId: "9ed7fbfb-4364-8b26-5630-1efcb984efa7"
-  metrics:
-    userId: "7eae29d715c1989c25ea51790be726576cbd1539"
   "tree-view":
     hideIgnoredNames: true
-  welcome:
-    showOnStartup: false
 ```
 
 **字体**
