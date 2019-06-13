@@ -1,6 +1,5 @@
 {
   "bold_folder_labels": true,
-  "color_scheme": "Packages/Dayle Rees Color Schemes/sublime/peacocks-in-space.tmTheme",
   "detect_indentation": false,
   "draw_indent_guides": true,
   "draw_white_space": "all",
@@ -14,10 +13,6 @@
   ],
   "font_face": "Fira Code",
   "font_size": 22,
-  "ignored_packages":
-  [
-    "Vintage"
-  ],
   "line_padding_bottom": 8,
   "line_padding_top": 8,
   "tab_size": 2,
