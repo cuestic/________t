@@ -16,3 +16,5 @@
 ??46.101.98.222
 
 ![aaa](./Artboard.png)
+
+["2@Shell","20@JavaScript","102@Ruby","1@C++","9@Python","7@C","1@Arc","3@Java","3@Clojure","7@Go","1@Fancy","3@Rust","3@Elixir","1@Julia","5@TypeScript","5@CSS","2@TeX","2@Crystal","81@Swift","1@Makefile","5@HTML","2@JupyterNotebook"]
