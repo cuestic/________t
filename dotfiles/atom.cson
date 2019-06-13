@@ -1,8 +1,4 @@
 "*":
-  "atom-package-deps":
-    ignored: [
-      "atom-typescript"
-    ]
   core:
     telemetryConsent: "no"
   editor:
@@ -17,11 +13,5 @@
     showInvisibles: true
     softWrap: true
     tabType: "soft"
-  "exception-reporting":
-    userId: "97bf76c5-dca7-4c9c-b491-5d0c2526ef0f"
-  "linter-ui-default":
-    showPanel: true
   "tree-view":
     hideIgnoredNames: true
-  welcome:
-    showOnStartup: false
