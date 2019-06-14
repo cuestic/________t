@@ -1,17 +1,6 @@
 = Nginx
 
 ```
-sudo service nginx start
-sudo service nginx reload
-sudo service nginx restart
-```
-
-```
-sudo nginx -t
-sudo nginx -s reload
-```
-
-```
 ln -s /etc/nginx/sites-available/com.gitlab.pennyjs /etc/nginx/sites-enabled/com.gitlab.pennyjs
 ```
 
