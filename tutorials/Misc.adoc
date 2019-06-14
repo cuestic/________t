@@ -1,17 +1,9 @@
 = Misc
 
-**SublimeText 快捷键**
-
-- command + L
-- command + D
-- command + K + B
-- command + control + G
-
 **命令行**
 
 ```
 id -u
-passwd
 du -c
 du -hd0
 ```
