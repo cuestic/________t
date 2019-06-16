@@ -12,15 +12,3 @@ plutil -convert json -o constants.json constants.plist
 node -e 'console.log(Array(24).fill().map((_, i) => i + 232).map((n) => "\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m").join("\0"))'
 ```
 
-**Shadowsocks**
-
-```
-apt install python-pip
-pip install shadowsocks
-```
-
-```
-sudo ssserver -p 4567 -k ******* -m aes-256-cfb --user nobody -d start
-sudo less /var/log/shadowsocks.log
-sudo ssserver -d stop
-```
