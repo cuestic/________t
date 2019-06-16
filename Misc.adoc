@@ -12,3 +12,6 @@ plutil -convert json -o constants.json constants.plist
 node -e 'console.log(Array(24).fill().map((_, i) => i + 232).map((n) => "\x1b[38;5;" + String(n) + "m" + String.fromCharCode(9724) + "\x1b[0m").join("\0"))'
 ```
 
+```
+ln -s /etc/nginx/sites-available/com.gitlab.pennyjs /etc/nginx/sites-enabled/com.gitlab.pennyjs
+```
