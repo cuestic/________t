@@ -1,7 +1,3 @@
-= Ruby
-
-=== RESTful API
-
 ``` ruby
 with_options only: 'show' do |option|
 end
@@ -13,20 +9,11 @@ namespace :api, path: '/' do
 end
 ```
 
-=== Misc
-
 ``` ruby
 destroy => 204
 ```
 
 ```ruby
-RUBY_VERSION
-```
-
-```ruby
-Array(1)
-Array([0, 1, 2])
-
 [*(1)]
 [*([0, 1, 2])]
 
@@ -72,8 +59,6 @@ end
 stars(0, 1, 2, { count: 3 })
 ```
 
-=== RSpec 测试
-
 ```ruby
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: 'controller'
@@ -110,13 +95,6 @@ User.ignored_columns
 ```ruby
 user.errors.details
 user.save(touch: false)
-```
-
-```json
-{
-  "created_on": "Date",
-  "created_at": "DateTime"
-}
 ```
 
 ```ruby
@@ -168,11 +146,6 @@ render json: users, except: [], include: { followers: { only: 'id' } }
 === Active Support
 
 ```ruby
-require 'active_support/all'
-```
-
-```ruby
-[].sum
 [0, 1].without(1)
 [{ id: 1 }].pluck(:id)
 ```
@@ -183,20 +156,12 @@ require 'active_support/all'
 ```
 
 ```ruby
-'Active Support'.try(:parameterize)
-```
-
-```ruby
 ActiveSupport::ArrayInquirer
 ActiveSupport::Dependencies.autoload_paths
 ActiveSupport::TimeZone.country_zones('kr').map(&:to_s)
 ```
 
 === 有用的命令行
-
-```
-rails middleware
-```
 
 ```
 rails routes -g users
@@ -218,30 +183,4 @@ app.method(:get).source_location
 
 ```ruby
 helper.strip_tags(helper.time_tag(Time.new))
-```
-
-```
-Status: 201 Created
-Location: https://api.leancloud.cn/1.1/classes/Post/558e20cbe4b060308e3eb36c
-```
-
-```
-{
-  "createdAt": "2015-06-29T01:39:35.931Z",
-  "objectId": "558e20cbe4b060308e3eb36c"
-}
-```
-
-```
-?include=author,creator,comments
-```
-
-```
-{
-  "updatedAt": "2015-06-30T18:02:52.248Z"
-}
-```
-
-```
-?where=&limit=&skip=&order_by=-created_at
 ```
