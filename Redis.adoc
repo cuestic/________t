@@ -1,0 +1,22 @@
+=== Redis
+
+**用户关系模型设计**
+
+```yaml
+keys:
+  users:{id}:followers: []
+  users:{id}:following: []
+actions:
+  follow: sadd
+  unfollow: srem
+users:
+  followers: smembers
+  following: smembers
+stats:
+  followers_count: scard
+  following_count: scard
+relations:
+  friends?: sinter
+  following?: sismember
+  followed_by?: sismember
+```
