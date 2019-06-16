@@ -1,23 +1,9 @@
-= Ubuntu 16.04
-
 ```
-apt install nginx tree -y
-```
-
-```
+apt install nginx
 apt install imagemagick graphicsmagick
-```
-
-```
 sudo apt autoremove
 ```
 
 ```
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-```
-
-```
-cat ~/.ssh/authorized_keys
-nano /etc/ssh/sshd_config
-sudo service ssh restart
 ```
