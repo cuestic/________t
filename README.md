@@ -5,3 +5,4 @@ privoxy
 /usr/local/sbin/privoxy /usr/local/etc/privoxy/config
 export http_proxy='http://localhost:8118'
 export https_proxy='http://localhost:8118'
+https://test.james.ac.cn/api/ubuntu
