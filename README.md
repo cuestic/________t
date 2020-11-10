@@ -15,15 +15,30 @@ starship
 ```
 
 ```
+export default {
+  cssPreprocessOptions: {
+    less: {
+      javascriptEnabled: true,
       modifyVars: {
-        'blue-6': '#319795',
+        '@blue-6': oc.blue[6],
+        '@cyan-6': oc.cyan[6],
+        '@green-6': oc.green[6],
+        '@lime-6': oc.lime[6],
+        '@pink-6': oc.pink[6],
+        '@red-6': oc.red[6],
+        '@orange-6': oc.orange[6],
+        '@yellow-6': oc.yellow[6],
+
         'font-size-sm': '14px',
         'font-size-base': '16px',
         'btn-font-size-sm': '14px',
 
         'btn-height-sm': '32px',
         'btn-height-base': '40px',
-        'btn-height-lg': '48px',
+        '@btn-height-lg': '48px',
+
+        '@radio-size': '18px',
+        '@checkbox-size': '18px',
 
         'input-height-sm': '32px',
         'input-height-base': '40px',
@@ -34,5 +49,17 @@ starship
         'input-padding-vertical-lg': '12px',
 
         'input-padding-horizontal-lg': '12px',
+
+        '@pagination-item-size-sm': '32px',
+        '@pagination-item-size': '40px',
+
+        '@dropdown-line-height': '32px',
+        '@select-dropdown-height': '46px',
+        '@dropdown-vertical-padding': '7px',
+
+        '@badge-status-size': '11px',
       }
+    }
+  }
+}
 ```
