@@ -13,3 +13,26 @@ postgresql
 pygments
 starship
 ```
+
+```
+      modifyVars: {
+        'blue-6': '#319795',
+        'font-size-sm': '14px',
+        'font-size-base': '16px',
+        'btn-font-size-sm': '14px',
+
+        'btn-height-sm': '32px',
+        'btn-height-base': '40px',
+        'btn-height-lg': '48px',
+
+        'input-height-sm': '32px',
+        'input-height-base': '40px',
+        'input-height-lg': '48px',
+
+        'input-padding-vertical-sm': '4px',
+        'input-padding-vertical-base': '8px',
+        'input-padding-vertical-lg': '12px',
+
+        'input-padding-horizontal-lg': '12px',
+      }
+```
