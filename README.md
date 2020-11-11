@@ -24,6 +24,11 @@ starship
 ```
 
 ```
+@layout-header-background: #001529;
+@layout-sider-background: @layout-header-background;
+```
+
+```
 MANAGE
 Apps
 NEW
