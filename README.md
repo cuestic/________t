@@ -27,7 +27,7 @@ starship
 @layout-header-background: #001529;
 @layout-sider-background: @layout-header-background;
 ```
-
+https://cloud-cdn-digitalocean-com.global.ssl.fastly.net/aurora/assets/images/cloud-logo--white-ddc0eb211b605dc641fef57ca3526f77.svg
 ```
 MANAGE
 Apps
