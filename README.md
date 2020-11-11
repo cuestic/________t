@@ -15,6 +15,27 @@ starship
 ```
 
 ```
+MANAGE
+Apps
+NEW
+Droplets
+Kubernetes
+Volumes
+Databases
+Spaces
+Container Registry
+Images
+Networking
+Monitoring
+DISCOVER
+Marketplace
+ACCOUNT
+Settings
+Billing
+API
+```
+
+```
 export default {
   cssPreprocessOptions: {
     less: {
