@@ -15,6 +15,15 @@ starship
 ```
 
 ```
+@menu-dark-bg: @layout-header-background;
+@menu-dark-submenu-bg: #000c17;
+@menu-dark-item-hover-bg: transparent;
+@menu-dark-item-active-bg: @primary-color;
+@menu-dark-color: @text-color-secondary-dark;
+@menu-dark-arrow-color: #fff;
+```
+
+```
 MANAGE
 Apps
 NEW
