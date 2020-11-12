@@ -2,6 +2,8 @@
 
 ```
 @menu-item-vertical-margin: 4px;
+@menu-item-boundary-margin: 8px;
+
 ```
 ```
 HOMEBREW_NO_AUTO_UPDATE
