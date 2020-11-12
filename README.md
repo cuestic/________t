@@ -1,4 +1,8 @@
 # ________t
+
+```
+@menu-item-vertical-margin: 4px;
+```
 ```
 HOMEBREW_NO_AUTO_UPDATE
 privoxy
