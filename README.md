@@ -1,4 +1,9 @@
 # ________t
+
+```
+GIT_TRACE=1 GIT_CURL_VERBOSE=1
+```
+
 ```
 {
     "editor.fontSize": 16,
