@@ -1,7 +1,3 @@
-```
-sudo ssserver -p {{}} -k {{}} -m rc4-md5 --user nobody -d start
-sudo ssserver -s {{}} -k {{}} -m aes-256-gcm -d
-```
 
 ```
 HOMEBREW_NO_AUTO_UPDATE
