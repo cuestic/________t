@@ -1,6 +1,1 @@
-```
-tail -n 10 production.log
-sudo cat /var/log/auth.log
-plutil -convert json -o constants.json constants.plist
-ln -s /etc/nginx/sites-available/com.gitlab.pennyjs /etc/nginx/sites-enabled/com.gitlab.pennyjs
-```
+sdasd
