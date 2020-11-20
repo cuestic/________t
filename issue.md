@@ -60,21 +60,6 @@ protected function redirectTo($request)
 ```
 
 ```
-docker system df
-docker image prune
-ENTRYPOINT? -d
-ENV NODE_VERSION 7.2.0
-docker container prune
-docker volume prune
-```
-
-```
-docker pull gitea/gitea:latest
-sudo mkdir -p /var/lib/gitea
-docker run -d --name=gitea -p 10022:22 -p 10080:3000 -v /var/lib/gitea:/data gitea/gitea:latest
-```
-
-```
 /usr/local/Homebrew
 brew tap
 brew cask doctor
@@ -87,19 +72,3 @@ brew services start privoxy
 brew info ruby@2.6
 brew --repo
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
