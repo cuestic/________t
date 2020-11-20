@@ -1,5 +1,3 @@
-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
 
 ```
 php artisan key:generate
@@ -57,18 +55,4 @@ protected function redirectTo($request)
 {
     return route('login');
 }
-```
-
-```
-/usr/local/Homebrew
-brew tap
-brew cask doctor
-brew list --cask
-brew update-reset
-brew config
-brew outdated
-brew leaves
-brew services start privoxy
-brew info ruby@2.6
-brew --repo
 ```
