@@ -2,8 +2,30 @@
 
 ---
 
+```json
+{
+  "name": "test-1",
+  "main": "index.js",
+  "version": "1.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "nunjucks": "^3.2.2",
+    "superagent": "^5.3.1"
+  }
+}
 ```
-def a
-  puts a
-end
+
+```json
+{
+  "name": "test-1",
+  "main": "index.js",
+  "version": "1.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "nunjucks": "^3.2.2",
+    "superagent": "^5.3.1"
+  }
+}
 ```
