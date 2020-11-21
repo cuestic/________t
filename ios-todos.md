@@ -2,6 +2,11 @@
 
 ![http://p2.music.126.net/HkU4bIkKPTwFralXNhpyrg==/109951165458768165.jpg?param=640y300](http://p2.music.126.net/HkU4bIkKPTwFralXNhpyrg==/109951165458768165.jpg?param=640y300)
 
+---
+
+- [ ] [How To Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+- [x] [How To Install and Use Docker Compose on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
+
 ```
 {
   "name": "test-1",
@@ -15,9 +20,6 @@
   }
 }
 ```
-
-- [ ] [How To Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
-- [x] [How To Install and Use Docker Compose on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
 
 **Weather**
 
