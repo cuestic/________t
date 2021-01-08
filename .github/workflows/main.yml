@@ -1,4 +1,4 @@
-name: Main
+name: test-101
 on:
   schedule:
   - cron: "*/5 * * * *"
