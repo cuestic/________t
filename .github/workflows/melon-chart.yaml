@@ -1,9 +1,9 @@
-name: melon-chart
+name: melon
 on:
   schedule:
-    - cron: '*/6 * * * *'
+    - cron: '* * * * *'
 jobs:
-  melon_chart:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,6 +11,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: node .github/actions/script_1.js
+      - run: cat package.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
