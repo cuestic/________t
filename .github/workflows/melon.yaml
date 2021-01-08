@@ -1,5 +1,6 @@
 name: Melon
 on:
+  push:
   schedule:
     - cron: '* * * * *'
 jobs:
