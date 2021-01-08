@@ -1,4 +1,4 @@
-name: actions-1
+name: abcd
 on:
   schedule:
     - cron: '*/6 * * * *'
