@@ -1,18 +1,17 @@
 name: Melon
 on:
-  push:
   schedule:
-    - cron: '* * * * *'
+  - cron: '*/15 * * * *'
 jobs:
   my_first_job:
     name: My first job
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: cat package.json
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - run: cat package.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
