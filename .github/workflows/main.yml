@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Main
 on:
   schedule:
   - cron: "* * * * *"
@@ -12,3 +12,5 @@ jobs:
       with:
         node-version: 12
     - run: node .github/actions/script_1.js
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
