@@ -2,5 +2,8 @@
   "name": "id-943959",
   "main": "index.js",
   "version": "1.0.1",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.5"
+  },
 }
