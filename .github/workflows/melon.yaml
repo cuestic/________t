@@ -1,9 +1,10 @@
-name: melon
+name: Melon
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron:  '* * * * *'
 jobs:
-  melon:
+  my_first_job:
+    name: My first job
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
