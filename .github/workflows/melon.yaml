@@ -1,7 +1,8 @@
 name: Melon
 on:
+  push:
   schedule:
-  - cron: '*/15 * * * *'
+  - cron: '* * * * *'
 jobs:
   my_first_job:
     name: My first job
