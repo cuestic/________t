@@ -1,1 +1,1 @@
-console.log(101)
+console.log((process.env.GITHUB_TOKEN || '').length)
