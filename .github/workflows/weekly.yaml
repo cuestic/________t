@@ -1,10 +1,11 @@
-name: Melon
+name: 周刊
 on:
   schedule:
-  - cron: '0 * * * *'
+  - cron: '0 0 * * *'
+    
 jobs:
-  my_first_job:
-    name: My first job
+  weekly:
+    name: weekly
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
