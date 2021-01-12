@@ -13,6 +13,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12
-    - run: cat package.json
+    - run: date
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
