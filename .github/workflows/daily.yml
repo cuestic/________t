@@ -8,4 +8,4 @@ jobs:
   daily:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "daily"
+      - run: date
