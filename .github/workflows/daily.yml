@@ -2,7 +2,7 @@ name: 日报
 
 on:
   schedule:
-    - cron: "0 16 * * *"
+    - cron: "5 0 * * *"
 
 jobs:
   daily:
