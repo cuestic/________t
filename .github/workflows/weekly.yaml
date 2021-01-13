@@ -1,8 +1,7 @@
 name: 周刊
 on:
-  schedule:
-  - cron: '0 0 * * *'
-    
+  push:
+
 jobs:
   weekly:
     name: weekly
@@ -13,6 +12,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12
-    - run: date
+    - run: node .github/actions/script_1.js
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
