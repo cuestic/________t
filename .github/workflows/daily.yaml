@@ -1,16 +1,19 @@
+name: Daum Cafe
+
 on:
   schedule:
-    - cron: '5,15,25 7 * * *'
+    - cron: '0 1-3 * * *'
   workflow_dispatch:
+
 jobs:
-  daily:
+  cafe:
     runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: '15'
+          node-version: 15
       - run: npm install
-      - run: node melon-chart.js
+      - run: node daum-cafe.js
         env:
-          ID_2016: '<<ID_it_works>>'
+          JSONBIN_TOKEN: ${{ secrets.JSONBIN_TOKEN }}
