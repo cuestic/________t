@@ -1,1 +1,11 @@
+name: 测试
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
+jobs:
+  test_flow:
+    runs-on: ubuntu-16.04
+    steps:
+      - run: date
