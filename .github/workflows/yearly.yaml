@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+jobs:
+  yearly:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: npm install
+      - run: node .github/actions/script_1.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
