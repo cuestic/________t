@@ -4,6 +4,6 @@
   "version": "1.0.3",
   "license": "MIT",
   "dependencies": {
-    "obliviate": "gitlab:mmruby/___code_obliviate___"
+    "obliviate": "github:obliviate-xx/obliviate"
   }
 }
