@@ -1,8 +1,0 @@
-const dayjs = require('dayjs')
-const utcPlugin = require('dayjs/plugin/utc')
-const timezonePlugin = require('dayjs/plugin/timezone')
-dayjs.extend(utcPlugin)
-dayjs.extend(timezonePlugin)
-dayjs.tz.setDefault('Asia/Seoul')
-console.log(dayjs.tz().format('YYYY-MM-DD HH:mm'))
-console.log(process.env.ID_2016)
