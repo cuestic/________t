@@ -1,7 +1,15 @@
 ```
-branch.master.merge=refs/heads/master
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
 user.name=matttrix
 user.email=1185398+matttrix@users.noreply.github.com
+remote.origin.url=git@github.com:matttrix/me2day-ios.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+(END)
 ```
 
 === Redis
