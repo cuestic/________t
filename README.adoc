@@ -1,3 +1,9 @@
+```
+branch.master.merge=refs/heads/master
+user.name=matttrix
+user.email=1185398+matttrix@users.noreply.github.com
+```
+
 === Redis
 
 **用户关系模型设计**
