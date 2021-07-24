@@ -18,7 +18,7 @@ response = HTTP.get('https://www.googleapis.com/youtube/v3/search', params: {
 items = JSON.parse(response.body)['items']
 git_res = HTTP.post("https://gitee.com/api/v5/repos/nonstop-io/wjsn/contents/items/#{date}.json", json: {
   access_token: ENV['GITEE_TOKEN'],
-  content: Base64.encode64(JSON.dump(items)).strip,
+  content: "YXNkc2Q=",
   message: "Add #{date}.json"
 })
 puts git_res.body
