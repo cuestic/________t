@@ -1,5 +1,6 @@
 require 'http'
 require 'json'
+require 'base64'
 require 'active_support/core_ext/time'
 
 name = '우주소녀'
@@ -14,7 +15,12 @@ response = HTTP.get('https://www.googleapis.com/youtube/v3/search', params: {
   maxResults: 10
 })
 
-puts JSON.parse(response.body)['items'].size
+items = JSON.parse(response.body)['items']
+HTTP.post("https://gitee.com/api/v5/repos/nonstop-io/wjsn/contents/items/#{date}.json", params: {
+  access_token: ENV['GITEE_TOKEN'],
+  content: Base64.encode64(JSON.dump(items)),
+  message: "Add #{date}.json"
+})
 
 new_data = { date: Time.parse("20#{date}").next_day.strftime('%y%m%d') }
 puts new_data
