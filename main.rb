@@ -16,11 +16,12 @@ response = HTTP.get('https://www.googleapis.com/youtube/v3/search', params: {
 })
 
 items = JSON.parse(response.body)['items']
-HTTP.post("https://gitee.com/api/v5/repos/nonstop-io/wjsn/contents/items/#{date}.json", json: {
+git_res = HTTP.post("https://gitee.com/api/v5/repos/nonstop-io/wjsn/contents/items/#{date}.json", json: {
   access_token: ENV['GITEE_TOKEN'],
   content: Base64.encode64(JSON.dump(items)),
   message: "Add #{date}.json"
 })
+puts git_res.body
 
 new_data = { date: Time.parse("20#{date}").next_day.strftime('%y%m%d') }
 puts new_data
