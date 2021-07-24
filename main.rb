@@ -8,6 +8,7 @@ response = HTTP.get('https://www.googleapis.com/youtube/v3/search', params: {
   q: "#{name} #{date}",
   key: ENV['YOUTUBE_API_KEY'],
   part: 'snippet',
+  maxResults: 10
 })
 
-puts response.body
+puts JSON.parse(response.body)['items']
