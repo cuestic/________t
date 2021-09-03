@@ -1,13 +1,13 @@
 name: ig_go
 on:
   workflow_dispatch:
+
 jobs:
   curl:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/setup-python@v2
         with:
-          ruby-version: 2.7
-      - run: apt-get update
-      - run: apt-get install curl
+          python-version: '3.x'
+      - run: pip -v
