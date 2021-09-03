@@ -11,4 +11,4 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install httpie
-      - run: http -h
+      - run: http -v https://help.instagram.com/113355287252104
