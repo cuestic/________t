@@ -10,5 +10,5 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - run: pip install httpie
-      - run: http -v https://help.instagram.com/113355287252104
+      - run: pip install youtube-dl
+      - run: youtube-dl -v https://www.tiktok.com/@official_wjsn/video/6947215895425060097 -g
