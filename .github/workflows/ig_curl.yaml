@@ -12,4 +12,5 @@ jobs:
           python-version: '3.x'
       - run: pip install youtube-dl
       - run: youtube-dl -v https://www.tiktok.com/@official_wjsn/video/7001373786599591170 -g
-      - run: youtube-dl -v EU_78c17Agk
+      - run: pip install --upgrade yt-dlp
+      - run: yt-dlp -v EU_78c17Agk
